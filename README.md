@@ -48,5 +48,6 @@ This program was conceived very quickly (~5 hours) and has several areas for imp
 - **Image Rotation**: The app doesn't work well with rotated faces or images; this can be easily fixed.
 - **Printability Score**: The algorithm for calculating printability can be significantly improved.
 - **UI Features**: The user interface could be enriched with more functionalities.
+- **Overall cleanliness**: Repo could be cleaner (clearer folder structure in ./src etc.)
 
 
