@@ -65,12 +65,12 @@ def main(np_image):
     logger.info("Number of faces detected: {}".format(len(detected_faces)))
 
     if len(detected_faces) == 0:
-        print("Warning: No faces were detected.")
+        logger.info("No faces were detected.")
         return None
 
     # Load FAN weights
     with nn.parameter_scope("FAN"):
-        print("Loading FAN weights...")
+        logger.info("Loading FAN weights...")
         nn.load_parameters(model_path)
 
     landmarks = []
@@ -209,9 +209,6 @@ def visualize_both_eyes_and_mouth(landmarks, image, output, detected_faces, emot
 
         lower_lip_mid_point_lower = is_mid_point_lower(face_landmarks)
         mouth_aspect_ratio = calculate_mouth_aspect_ratio(face_landmarks)
-
-        logger.info(f"mar:{mouth_aspect_ratio}")
-        logger.info(f"llmpl:{lower_lip_mid_point_lower}")
 
         smile = False
 
