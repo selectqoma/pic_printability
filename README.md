@@ -1,53 +1,16 @@
 # Pic Printability
 
-App to check your pic's printability with a simple UI.
+A Streamlit experiment that scores faces in photos using landmarks and emotion detection. It combines Dlib, NNabla and a CNN trained on FER2013.
 
-![Demo Image](https://github.com/selectqoma/pic_printability/assets/85152770/db9dbe0a-fdc3-4d1a-b278-95dd819ba6a6.png)
+![Demo](https://github.com/selectqoma/pic_printability/assets/85152770/db9dbe0a-fdc3-4d1a-b278-95dd819ba6a6.png)
 
-## Technologies Used
+## Run with Docker
 
-- Dlib's face detection
-- NNabla face keypoint detection
-- Emotion detection model (simple CNN) trained on the FER2013 Dataset
+```sh
+docker build -t printability -f docker/Dockerfile .
+docker run --rm -p 127.0.0.1:8501:8501 printability
+```
 
-## Getting Started
+Open http://localhost:8501 and upload a photo. The build downloads pretrained face models.
 
-### Prerequisites
-
-- Docker
-
-### Installation and Usage
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your_username/pic_printability.git
-    ```
-
-2. Navigate to the directory:
-    ```bash
-    cd pic_printability
-    ```
-
-3. Build the Docker image:
-    ```bash
-    docker build -t printability -f docker/Dockerfile .
-    ```
-
-4. Run the Docker container:
-    ```bash
-    docker run printability
-    ```
-   
-5. Go to the URL that pops up in your terminal to open the UI.
-
-## Limitations and Future Improvements
-
-This program was conceived very quickly (~5 hours) and has several areas for improvement:
-
-- **Smile Detection**: Currently not robust; could be improved with a simple CNN instead of relying on aspect ratios.
-- **Image Rotation**: The app doesn't work well with rotated faces or images; this can be easily fixed.
-- **Printability Score**: The algorithm for calculating printability can be significantly improved.
-- **UI Features**: The user interface could be enriched with more functionalities.
-- **Overall cleanliness**: Repo could be cleaner (clearer folder structure in ./src etc.)
-
-
+This was a quick prototype. Smile detection and rotated faces are unreliable, and the score is a heuristic rather than a measure of print quality.
